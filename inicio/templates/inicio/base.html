@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Transportes Santos{% endblock %}</title>
+
+    <style>
+        :root {
+            --vino: #780F0F;
+            --negro: #000000;
+            --blanco: #FFFFFF;
+            --rojo-intenso: #A20D0D;
+            --gris-claro: #F5F5F5;
+            --texto: #293746;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: var(--texto);
+            line-height: 1.7;
+            background: var(--blanco);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--negro);
+            box-shadow: 0 4px 15px #0003;
+        }
+
+        nav {
+            max-width: 1250px;
+            min-height: 76px;
+            margin: auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 21px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--rojo-intenso);
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .menu a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: .2s;
+        }
+
+        .menu a:hover {
+            color: var(--rojo-intenso);
+        }
+
+        .menu .btn-menu {
+            background: var(--vino);
+            padding: 9px 14px;
+            border-radius: 6px;
+            color: var(--blanco);
+        }
+
+        .menu .btn-menu:hover {
+            background: var(--rojo-intenso);
+        }
+
+        main {
+            padding-top: 76px;
+            min-height: 75vh;
+        }
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .contenedor {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.3;
+        }
+
+        h2 {
+            color: var(--vino);
+            text-align: center;
+            font-size: clamp(28px, 4vw, 38px);
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: var(--vino);
+            margin-bottom: 12px;
+        }
+
+        .subtitulo {
+            max-width: 760px;
+            margin: 0 auto 35px;
+            text-align: center;
+            color: #657383;
+        }
+
+        .boton {
+            display: inline-block;
+            background: var(--vino);
+            color: var(--blanco);
+            border: none;
+            border-radius: 7px;
+            padding: 12px 22px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .boton:hover {
+            background: var(--rojo-intenso);
+            transform: translateY(-2px);
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .tarjeta {
+            padding: 26px;
+            border: 1px solid #e4eaf0;
+            border-radius: 12px;
+            background: var(--blanco);
+            box-shadow: 0 6px 20px #102a4310;
+        }
+
+        .tarjeta h3 {
+            color: var(--rojo-intenso);
+        }
+
+        .icono {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .fondo-gris {
+            background: var(--gris-claro);
+        }
+
+        .texto-centro {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .hero {
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            color: var(--blanco);
+            background:
+                linear-gradient(90deg, #780F0Fed, #00000099),
+                url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVv02NSeEh6m9-0WY1rMt6YgPHty4iRRJopu0bt7GTDw&s=10")
+                center / cover no-repeat;
+        }
+
+        .hero-contenido {
+            width: 100%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            max-width: 760px;
+            font-size: clamp(36px, 5.5vw, 60px);
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--rojo-intenso);
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 18px;
+            margin-bottom: 28px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            padding: 6px 13px;
+            background: #ffffff20;
+            border: 1px solid #ffffff55;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--blanco);
+        }
+
+        details {
+            background: var(--gris-claro);
+            border: 1px solid #e3e9ef;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 13px;
+        }
+
+        summary {
+            cursor: pointer;
+            color: var(--vino);
+            font-weight: bold;
+        }
+
+        details p {
+            padding-top: 12px;
+        }
+
+        footer {
+            background: var(--negro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 28px 18px;
+            border-top: 3px solid var(--vino);
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        footer .frase {
+            color: var(--rojo-intenso);
+            font-weight: bold;
+        }
+
+        @media (max-width: 1000px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .menu {
+                gap: 10px 15px;
+            }
+
+            main {
+                padding-top: 125px;
+            }
+
+            .tarjetas {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .menu {
+                gap: 6px 11px;
+            }
+
+            .menu a {
+                font-size: 12px;
+            }
+
+            main {
+                padding-top: 145px;
+            }
+
+            section {
+                padding: 48px 6%;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 470px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <nav>
+        <a href="{% url 'home' %}" class="logo">
+            TRANSPORTES <span>SANTOS</span>
+        </a>
+
+        <div class="menu">
+            <a href="{% url 'home' %}">Inicio</a>
+            <a href="{% url 'historia' %}">Historia</a>
+            <a href="{% url 'servicios' %}">Servicios</a>
+            <a href="{% url 'destinos' %}">Destinos</a>
+            <a href="{% url 'preguntas' %}">Preguntas frecuentes</a>
+
+            
+          {% if user.is_staff %}
+    <a href="{% url 'operaciones_dashboard' %}" style="color: #FFD700; border: 1px dashed #FFD700; padding: 4px 8px; border-radius: 4px;">Operaciones</a>
+{% endif %}
+
+            <a href="{% url 'cotizacion' %}" class="btn-menu">Cotizar</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    {% block contenido %}{% endblock %}
+</main>
+
+<footer>
+    <p><strong>TRANSPORTES SANTOS</strong></p>
+    <p class="frase">UNIÓN SIN LÍMITES</p>
+    <p>&copy; 2026 Transportes Santos. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>

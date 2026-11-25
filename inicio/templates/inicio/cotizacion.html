@@ -1,0 +1,168 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Cotización | Transportes Santos{% endblock %}
+
+{% block contenido %}
+<style>
+    .formulario-contenedor {
+        background: var(--gris-claro);
+        padding: 50px 0;
+    }
+
+    .formulario {
+        max-width: 820px;
+        margin: auto;
+        padding: 35px;
+        background: var(--blanco);
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e4eaf0;
+    }
+
+    .campos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .campo {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .campo.completo {
+        grid-column: 1 / -1;
+    }
+
+    .campo label {
+        font-weight: bold;
+        color: var(--negro);
+        font-size: 14px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #cbd5df;
+        border-radius: 6px;
+        font: inherit;
+        font-size: 15px;
+        color: var(--negro);
+        background-color: var(--blanco);
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: var(--vino);
+        box-shadow: 0 0 0 3px rgba(120, 15, 15, 0.15);
+    }
+
+    textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+    .aviso {
+        padding: 16px;
+        margin-bottom: 25px;
+        border-radius: 8px;
+        background: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #c8e6c9;
+        text-align: center;
+    }
+
+    .nota {
+        margin-top: 15px;
+        font-size: 13px;
+        color: #657383;
+    }
+
+    @media (max-width: 600px) {
+        .campos {
+            grid-template-columns: 1fr;
+        }
+
+        .campo.completo {
+            grid-column: auto;
+        }
+
+        .formulario {
+            padding: 22px;
+        }
+    }
+</style>
+
+<section class="formulario-contenedor">
+    <div class="contenedor">
+        <h2>Solicita tu cotización</h2>
+
+        <p class="subtitulo">
+            Proporciona los detalles de tu traslado para que podamos revisar tu solicitud y brindarte una propuesta adaptada a tus necesidades.
+        </p>
+
+        <form class="formulario" method="post" action="{% url 'cotizacion' %}">
+            {% csrf_token %}
+
+            {% if mensaje %}
+                <div class="aviso" role="status">
+                    <p style="margin-bottom: 10px; font-size: 16px; font-weight: bold;">{{ mensaje }}</p>
+                    
+                    {% if url_whatsapp %}
+                        <a href="{{ url_whatsapp }}" target="_blank" style="display: inline-block; background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 10px; box-shadow: 0 4px 10px rgba(37,211,102,0.3);">
+                            📲 Enviar cotización por WhatsApp
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="campos">
+                <div class="campo">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                </div>
+
+                <div class="campo">
+                    <label for="correo">Correo electrónico *</label>
+                    <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Tu número de contacto" required>
+                </div>
+
+                <div class="campo">
+                    <label for="mercancia">Tipo de mercancía *</label>
+                    <input type="text" id="mercancia" name="mercancia" placeholder="¿Qué necesitas transportar?" required>
+                </div>
+
+                <div class="campo">
+                    <label for="origen">Lugar de recolección *</label>
+                    <input type="text" id="origen" name="origen" placeholder="Ciudad o dirección" required>
+                </div>
+
+                <div class="campo">
+                    <label for="destino">Lugar de destino *</label>
+                    <input type="text" id="destino" name="destino" placeholder="Ciudad o dirección" required>
+                </div>
+
+                <div class="campo completo">
+                    <label for="detalles">Detalles adicionales</label>
+                    <textarea id="detalles" name="detalles" placeholder="Cantidad, peso, dimensiones u otra información relevante"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="boton" style="margin-top:24px; width: 100%;">
+                Enviar solicitud →
+            </button>
+
+            <p class="nota">
+                * Los campos marcados son obligatorios.
+            </p>
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Destinos | Transportes Santos{% endblock %}
+
+{% block contenido %}
+<section class="fondo-gris">
+    <div class="contenedor">
+        <h2>Nuestros destinos</h2>
+
+        <p class="subtitulo">
+            Conoce las alternativas de cobertura y consulta
+            la disponibilidad de la ruta que necesitas.
+        </p>
+
+        <!-- Banner con la imagen de carretera/ruta -->
+        <div style="width: 100%; max-width: 900px; height: 220px; margin: 0 auto 30px auto; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2aN4bPrTR_s6bGvq4-xzjcVRMJgeYHb-cchBwWO_F2g&s=10" 
+                 alt="Rutas y destinos Transportes Santos" 
+                 style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+
+        <div class="tarjetas">
+            <article class="tarjeta" style="text-align:center">
+                <div class="icono">📍</div>
+                <h3>Cobertura local</h3>
+                <p>
+                    Traslados dentro de una misma ciudad o en
+                    zonas cercanas, según disponibilidad.
+                </p>
+            </article>
+
+            <article class="tarjeta" style="text-align:center">
+                <div class="icono">🛣️</div>
+                <h3>Cobertura regional</h3>
+                <p>
+                    Servicios entre distintas ciudades y
+                    municipios de una región, previa confirmación.
+                </p>
+            </article>
+
+            <article class="tarjeta" style="text-align:center">
+                <div class="icono">🇲🇽</div>
+                <h3>Cobertura nacional</h3>
+                <p>
+                    Consulta las opciones de traslado entre
+                    distintos estados de México.
+                </p>
+            </article>
+        </div>
+
+        <p class="texto-centro" style="margin-top:35px">
+            ¿Tienes un destino en mente? Ponte en contacto con
+            Transportes Santos para consultar si tu ruta está disponible.
+        </p>
+
+        <div style="text-align:center; margin-top:20px">
+            <a href="{% url 'cotizacion' %}" class="boton">
+                Consultar mi ruta
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

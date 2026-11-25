@@ -1,0 +1,64 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Inicio | Transportes Santos{% endblock %}
+
+{% block contenido %}
+<section class="hero">
+    <div class="hero-contenido">
+        <span class="etiqueta">UNIÓN SIN LÍMITES</span>
+
+        <h1>
+            Bienvenido a<br>
+            Transportes <span>Santos</span>
+        </h1>
+
+        <p>
+            Tu carga en buenas manos, tu destino en nuestro camino.
+            Ofrecemos soluciones de transporte con responsabilidad,
+            compromiso y atención personalizada.
+        </p>
+
+        <a href="{% url 'cotizacion' %}" class="boton">
+            Solicitar cotización →
+        </a>
+    </div>
+</section>
+
+<section>
+    <div class="contenedor">
+        <h2>Movemos lo que importa</h2>
+
+        <p class="subtitulo">
+            En Transportes Santos buscamos facilitar el traslado
+            de mercancías con una atención cercana y soluciones
+            adaptadas a las necesidades de cada cliente.
+        </p>
+
+        <div class="tarjetas">
+            <article class="tarjeta">
+                <div class="icono">📦</div>
+                <h3>Recolección</h3>
+                <p>Coordinamos la recogida de mercancías en el lugar acordado.</p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🚛</div>
+                <h3>Transporte</h3>
+                <p>Organizamos el traslado hacia el destino solicitado.</p>
+            </article>
+
+            <article class="tarjeta">
+                <div class="icono">🤝</div>
+                <h3>Atención personalizada</h3>
+                <p>Te orientamos para que puedas solicitar el servicio adecuado.</p>
+            </article>
+        </div>
+
+        <div style="text-align:center; margin-top:35px">
+            <a href="{% url 'servicios' %}" class="boton">
+                Conoce nuestros servicios
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

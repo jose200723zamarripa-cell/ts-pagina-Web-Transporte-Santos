@@ -1,0 +1,89 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Preguntas frecuentes | Transportes Santos{% endblock %}
+
+{% block contenido %}
+<section>
+    <div class="contenedor">
+
+        <!-- Logo/Imagen centrada en la parte superior -->
+        <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://transsantos.com/wp-content/uploads/2022/06/Logo-TransSantos2-2.png" 
+                 alt="Logo Transportes Santos" 
+                 style="max-width: 280px; width: 100%; height: auto; object-fit: contain;">
+        </div>
+
+        <h2>Preguntas frecuentes</h2>
+
+        <p class="subtitulo">
+            Resolvemos tus dudas sobre los servicios de
+            Transportes Santos.
+        </p>
+
+        <details>
+            <summary>¿Cómo puedo solicitar una cotización?</summary>
+            <p>
+                Ingresa a la sección Cotizar y completa el formulario
+                con tus datos, la mercancía y el lugar de origen y destino.
+            </p>
+        </details>
+
+        <details>
+            <summary>¿Qué información necesito para cotizar?</summary>
+            <p>
+                Indica el tipo de mercancía, la cantidad, el peso
+                o las dimensiones aproximadas, el origen y el destino.
+            </p>
+        </details>
+
+        <details>
+            <summary>¿Qué tipo de mercancías puedo transportar?</summary>
+            <p>
+                La aceptación depende de las características de la
+                mercancía y de las condiciones del servicio. Consulta
+                tu caso con la empresa.
+            </p>
+        </details>
+
+        <details>
+            <summary>¿Puedo solicitar un traslado a otro estado?</summary>
+            <p>
+                Puedes consultar la disponibilidad de rutas regionales
+                y nacionales con Transportes Santos.
+            </p>
+        </details>
+
+        <details>
+            <summary>¿De qué depende el precio del servicio?</summary>
+            <p>
+                El costo puede variar según la distancia, el tipo de
+                mercancía, sus dimensiones y las condiciones del traslado.
+            </p>
+        </details>
+
+        <details>
+            <summary>¿Cómo puedo conocer el estado de mi solicitud?</summary>
+            <p>
+                El seguimiento de las solicitudes podrá consultarse
+                cuando la función correspondiente esté habilitada
+                en la aplicación.
+            </p>
+        </details>
+
+        <details>
+            <summary>¿Cómo puedo comunicarme con la empresa?</summary>
+            <p>
+                Consulta los medios de contacto oficiales de
+                Transportes Santos para conocer la disponibilidad
+                de los servicios.
+            </p>
+        </details>
+
+        <div style="text-align:center; margin-top:30px">
+            <a href="{% url 'cotizacion' %}" class="boton">
+                Tengo otra consulta
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

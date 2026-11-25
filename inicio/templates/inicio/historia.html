@@ -1,0 +1,53 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Historia | Transportes Santos{% endblock %}
+
+{% block contenido %}
+<section>
+    <div class="contenedor">
+        <h2>Nuestra Historia</h2>
+        <p class="subtitulo">Conoce los principios, misión, visión y valores que guían nuestro camino.</p>
+
+        <div class="tarjetas" style="grid-template-columns: 1fr; margin-bottom: 30px;">
+            <article class="tarjeta" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3>¿Quiénes somos?</h3>
+                    <p>
+                        Transportes Santos surge con el firme propósito de ofrecer soluciones integrales de transporte de mercancías. 
+                        Bajo el lema <strong>«UNIÓN SIN LÍMITES»</strong>, atendemos las necesidades de clientes y empresas que buscan 
+                        trasladar sus productos de manera segura, organizada y confiable a lo largo de sus rutas.
+                    </p>
+                </div>
+                <div style="flex: 1; min-width: 280px; text-align: center;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4kKnmyXPx4kVBRzACbit8KWVp1CUj9B8tt2R_mfGKjQ&s=10" 
+                         alt="Transportes Santos" 
+                         style="width: 100%; max-width: 350px; height: auto; border-radius: 8px; object-fit: cover;">
+                </div>
+            </article>
+        </div>
+
+        <div class="tarjetas">
+            <article class="tarjeta">
+                <h3>Misión</h3>
+                <p>Brindar servicios de transporte de mercancías con responsabilidad, puntualidad y atención personalizada, procurando la máxima satisfacción de nuestros clientes en cada traslado.</p>
+            </article>
+
+            <article class="tarjeta">
+                <h3>Visión</h3>
+                <p>Ser una empresa líder y reconocida por la calidad de sus servicios, la confianza absoluta de nuestros clientes y la capacidad de conectar destinos a nivel regional y nacional.</p>
+            </article>
+
+            <article class="tarjeta">
+                <h3>Valores</h3>
+                <p><strong>Responsabilidad, Honestidad, Compromiso, Puntualidad y Confianza</strong> definen el rigor profesional con el que cuidamos cada carga.</p>
+            </article>
+        </div>
+
+        <div style="text-align:center; margin-top:35px">
+            <a href="{% url 'cotizacion' %}" class="boton">
+                Trabaja con nosotros
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

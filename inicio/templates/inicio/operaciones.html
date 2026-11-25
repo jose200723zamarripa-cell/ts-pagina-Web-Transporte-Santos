@@ -1,0 +1,48 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Panel de Operaciones - Transportes Santos{% endblock %}
+
+{% block contenido %}
+<section>
+    <div class="contenedor">
+        <h2>Panel de Control Logístico</h2>
+        <p class="subtitulo">Monitoreo en tiempo real de unidades, operadores y viajes activos.</p>
+
+        <!-- Sección de Viajes -->
+        <h3 style="margin-top: 40px;">Viajes Registrados</h3>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <thead>
+                    <tr style="background: var(--vino); color: white; text-align: left;">
+                        <th style="padding: 12px;">ID</th>
+                        <th style="padding: 12px;">Origen ➔ Destino</th>
+                        <th style="padding: 12px;">Operador</th>
+                        <th style="padding: 12px;">Vehículo</th>
+                        <th style="padding: 12px;">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for viaje in viajes %}
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 12px;">#{{ viaje.id }}</td>
+                        <td style="padding: 12px;">{{ viaje.origen }} ➔ {{ viaje.destino }}</td>
+                        <td style="padding: 12px;">{{ viaje.operador.nombre }}</td>
+                        <td style="padding: 12px;">{{ viaje.vehiculo.tipo }} ({{ viaje.vehiculo.placas }})</td>
+                        <td style="padding: 12px;"><strong>{{ viaje.get_estado_display }}</strong></td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" style="padding: 20px; text-align: center; color: #777;">No hay viajes registrados todavía. Da de alta algunos desde el panel de administración.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botón rápido para ir al admin -->
+        <div style="margin-top: 30px; text-align: center;">
+            <a href="/admin/" class="boton" target="_blank">Gestionar desde el Administrador</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

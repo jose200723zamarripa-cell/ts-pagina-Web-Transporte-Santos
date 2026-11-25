@@ -1,0 +1,75 @@
+{% extends 'inicio/base.html' %}
+
+{% block titulo %}Servicios | Transportes Santos{% endblock %}
+
+{% block contenido %}
+<section>
+    <div class="contenedor">
+        <h2>Nuestros servicios</h2>
+
+        <p class="subtitulo">
+            Soluciones de transporte pensadas para las necesidades
+            de cada cliente y cada mercancía.
+        </p>
+
+        <div class="tarjetas">
+            <!-- Tarjeta 1: Recolección -->
+            <article class="tarjeta" style="overflow: hidden; padding: 0;">
+                <div style="height: 180px; width: 100%;">
+                    <img src="https://transsantos.com/wp-content/uploads/2022/06/fffffff.png" 
+                         alt="Recolección de mercancías" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px;">
+                    <h3>Recolección de mercancías</h3>
+                    <p>
+                        Coordinamos la recolección de productos y
+                        materiales en el lugar acordado, considerando
+                        las características de la carga y del servicio.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Tarjeta 2: Traslado -->
+            <article class="tarjeta" style="overflow: hidden; padding: 0;">
+                <div style="height: 180px; width: 100%;">
+                    <img src="https://mecano.mx/wp-content/uploads/2018/10/GOPR2285.jpg" 
+                         alt="Traslado de mercancías" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px;">
+                    <h3>Traslado de mercancías</h3>
+                    <p>
+                        Organizamos el transporte hacia el destino
+                        solicitado, de acuerdo con la ruta y las
+                        condiciones disponibles.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Tarjeta 3: Atención personalizada (NUEVA IMAGEN) -->
+            <article class="tarjeta" style="overflow: hidden; padding: 0;">
+                <div style="height: 180px; width: 100%;">
+                    <img src="https://mantruckandbus.com.mx/wp-content/uploads/2025/08/VW-TRUCK-AND-ROAD-HFG9A6879-1024x683.jpg" 
+                         alt="Atención personalizada - Autobuses y Transporte" 
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <div style="padding: 20px;">
+                    <h3>Atención personalizada</h3>
+                    <p>
+                        Te orientamos durante el proceso de solicitud,
+                        aclaramos tus dudas y te ayudamos a conocer
+                        las condiciones del servicio.
+                    </p>
+                </div>
+            </article>
+        </div>
+
+        <div style="text-align:center; margin-top:35px">
+            <a href="{% url 'cotizacion' %}" class="boton">
+                Solicitar cotización →
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
