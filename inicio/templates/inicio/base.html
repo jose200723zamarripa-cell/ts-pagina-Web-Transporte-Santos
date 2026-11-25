@@ -330,11 +330,8 @@
             <a href="{% url 'servicios' %}">Servicios</a>
             <a href="{% url 'destinos' %}">Destinos</a>
             <a href="{% url 'preguntas' %}">Preguntas frecuentes</a>
-
             
-          {% if user.is_staff %}
     <a href="{% url 'operaciones_dashboard' %}" style="color: #FFD700; border: 1px dashed #FFD700; padding: 4px 8px; border-radius: 4px;">Operaciones</a>
-{% endif %}
 
             <a href="{% url 'cotizacion' %}" class="btn-menu">Cotizar</a>
         </div>
