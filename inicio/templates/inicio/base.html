@@ -13,6 +13,13 @@
             --rojo-intenso: #A20D0D;
             --gris-claro: #F5F5F5;
             --texto: #293746;
+}
+
+.barra-contacto a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 6px;
+}
         }
 
         * {
@@ -27,11 +34,36 @@
             color: var(--texto);
             line-height: 1.7;
             background: var(--blanco);
+
+        }
+.barra-contacto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #1D4ED8;
+    color: #FFFFFF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 24px;
+    z-index: 1001;
+}
+
+.barra-contacto a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-left: 6px;
+}
+}
         }
 
         header {
             position: fixed;
-            top: 0;
+            top: 30px;
             left: 0;
             width: 100%;
             z-index: 1000;
@@ -59,7 +91,7 @@
         }
 
         .logo span {
-            color: var(--rojo-intenso);
+            color: #1D4ED8;
         }
 
         .menu {
@@ -316,8 +348,11 @@
         }
     </style>
 </head>
-
-<body>
+    <body>
+    <div class="barra-contacto">
+        <span>Contacto:</span>
+        <a href="tel:+52 55 6532 9806">443 000 0000</a>
+    </div>
 <header>
     <nav>
         <a href="{% url 'home' %}" class="logo">
